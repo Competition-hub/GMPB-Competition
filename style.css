@@ -1,127 +1,27 @@
-/* body {
-    font-family: 'Times New Roman', Times, serif;
-}
-
-* {
-    font-size: 1rem;
-}
- 
+/* General body and layout styling */
 body {
-    max-width: 620px;
-    margin-inline: auto;
-    margin-top: 3rem;
-}
-
-p {
-    word-spacing: .17rem;
-}
-
-table {
-    margin-block: 1rem;
-    width: 100%;
-}
-
-td {
-    border: 1px solid;
-    padding: .4rem 1rem;
-}
-
-tr>td:first-child {
-    max-width: 10rem;
-}
-
-body > h1{
-    margin-bottom: 2rem;
-}
-
-@media screen and (max-width: 640px) {
-    body{
-        margin-inline: 1rem;
-    }
-    table{
-        position: relative;
-        left: -80px;
-        width: calc(100% + 80px);
-    }
-} */
-
-.spans-light {
     font-family: 'Montserrat', sans-serif;
-    letter-spacing: 0.3px;
-}
-
-#ref {
-    color: grey;
-    margin-top: 30px;
-}
-table {
-    margin-block: 1rem;
-    width: 100%;
-}
-
-td,th {
-    border: 1px solid;
-    padding: .4rem 1rem;
-    text-align: center;
-}
-
-main caption {
-    margin-bottom: 6px;
-    text-align: center;
+    margin: 0;
     padding: 0;
-    caption-side: top;
-    color: black;
-}
-
-.lft{
-    text-align: left;
-}
-
-/* tr>td:first-child {
-    max-width: 10rem;
-} */
-
-
-@media screen and (max-width: 640px) {
-    /* body{
-        margin-inline: 1rem;
-    } */
-    /* table{
-        position: relative;
-        left: -50px;
-        width: calc(100% + 80px);
-    } */
-} 
-
-
-body {
-    padding-bottom: 10px;
-}
-
-
-
-
-
-
-main h1,
-main h3 {
-    line-height: normal;
-    font-weight: bold;
+    max-width: 100%;
+    overflow-x: hidden; /* 防止水平滚动 */
+    box-sizing: border-box;
 }
 
 main {
     padding: 18px;
     font-family: 'Lora', serif;
-    line-height: normal;
-    font-weight: normal;
     color: black;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
-main>h1,
-main>h3 {
+main h1, main h3 {
+    line-height: normal;
+    font-weight: bold;
     text-align: center;
 }
-
 
 main h1 {
     font-size: 2em;
@@ -129,73 +29,121 @@ main h1 {
     margin-block-end: 0.67em;
 }
 
-article h1 {
-    font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
+/* Ensure images and figures are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
 }
 
-#fig {
-    transition: width 0.5s ease;
+figure {
+    margin: 20px 0;
+    max-width: 100%;
+    overflow-x: auto;
+    text-align: center;
 }
 
+figure img {
+    max-width: 80%; /* 限制图片宽度为容器的 80% */
+    height: auto;
+}
+
+figcaption {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: gray;
+}
+
+/* Ensure formulas are scrollable */
+math, .formula {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto; /* 使公式可滚动 */
+    white-space: nowrap; /* 防止公式换行 */
+    font-size: 1rem;
+    text-align: center;
+    margin: 10px auto;
+}
+
+/* Scrollable container for tables */
+table {
+    width: 100%;
+    margin-block: 1rem;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid;
+    padding: .4rem 1rem;
+    text-align: center;
+}
+
+.main table {
+    margin: 1rem 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.main table th, .main table td {
+    white-space: nowrap; /* 防止表格内容换行 */
+}
+
+/* Adjustments for mobile devices */
 @media only screen and (max-width: 768px) {
     main h1 {
-        font-size: 1.1em;
-        margin-block: 2rem;
-    }
-
-    main h2 {
-        font-size: 1em;
-        font-weight: bold;
-    }
-
-    main p,li{
-        font-size: 14px;
-    }
-
-    article h1{
-        background-color: #2a328c17;
-        background-color: #2a328c0d;
-        padding: 8px 10px;
-        margin-inline: -18px;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    main>h1 {
         font-size: 1.3em !important;
     }
+
+    table {
+        width: calc(100% - 40px); /* Fix for small screens */
+        margin: 0 20px;
+    }
+
+    figure img {
+        max-width: 100%; /* 小屏幕时图片全宽显示 */
+    }
+
+    body {
+        padding-inline: 10px;
+    }
+
+    math, .formula {
+        font-size: 0.9rem; /* 小屏幕时减小公式字体 */
+    }
 }
 
+/* Larger screens (desktop) */
 @media only screen and (min-width: 769px) {
-    main h2 {
-        font-size: 1.3em !important;
-        font-weight: bold;
-    }
-
-    li{
-        margin-block: 2rem !important;
-    }
-
-    article h1{
-        margin-block: 3rem !important;
-    }
-
-    body{
-        margin-inline:auto;
+    body {
         max-width: 1000px;
+        margin-inline: auto;
     }
-}
 
-@media only screen and (max-width: 600px) {
-
-    main ul,
-    main ol {
+    main {
         padding-left: 20px;
+        padding-right: 20px; /* 添加左右间距 */
+    }
+
+    table {
+        margin: 1rem 0;
+    }
+
+    figure img {
+        max-width: 70%; /* 保持图片在大屏幕上的适当宽度 */
     }
 }
 
+/* 调整作者名字的字体大小并加粗 */
+article h2 {
+    font-size: 1.1em; /* 调整作者名字的字体大小 */
+    font-weight: bold; /* 加粗 */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* 保留带有阴影和底色的部分样式（保持原样不变） */
 .imprtnt {
     background-color: rgb(242 242 242 / 0.47);
     padding: 14px;
@@ -203,41 +151,40 @@ article h1 {
     margin: 38px auto;
     box-shadow: 0 0 1px 1px rgb(0 0 0 / 13%) !important;
     max-width: 600px;
-    /* color: red; */
     font-weight: bold;
 }
 
-.imprtnt h1{
+.imprtnt h1 {
     margin-block-start: 0.83em;
     margin-block-end: 0.83em;
 }
 
-.imprtnt p{
+.imprtnt p {
     margin-bottom: 0;
 }
 
-#criteria b{
+#criteria b {
     display: block;
     margin-top: 1rem;
 }
 
-li{
+li {
     margin-block: 1rem;
 }
 
-figure img{
+figure img {
     max-width: 47%;
 }
 
-figcaption{
+figcaption {
     margin-top: 2rem;
 }
 
-#logo{
+#logo {
     display: flex;
     justify-content: center;
 }
 
-#logo img{
+#logo img {
     max-width: 100px;
 }
